@@ -17,7 +17,7 @@ from ksa_compliance.ksa_compliance.doctype.sales_invoice_additional_fields.sales
 def add_batch_to_background_queue(check_date=datetime.date.today()):
     try:
         logger.info("Start Enqueue E-Invoices")
-        frappe_version = int(frappe.__version__.split('.')[0])
+        frappe_version = int(frappe.__version__.split(".")[0])
 
         enqueue_kwargs = {
             "method": "ksa_compliance.background_jobs.sync_e_invoices",
