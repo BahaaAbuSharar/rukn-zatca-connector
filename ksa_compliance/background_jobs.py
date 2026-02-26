@@ -18,7 +18,7 @@ def add_batch_to_background_queue(check_date=datetime.date.today()):
     try:
         logger.info("Start Enqueue E-Invoices")
         frappe_version = int(frappe.__version__.split('.')[0])
-        
+
         enqueue_kwargs = {
             "method": "ksa_compliance.background_jobs.sync_e_invoices",
             "check_date": check_date,
@@ -27,10 +27,10 @@ def add_batch_to_background_queue(check_date=datetime.date.today()):
             "job_name": "Sync E-Invoices",
             "job_id": f"Sending invoices {check_date}",
         }
-        
+
         if frappe_version >= 15:
             enqueue_kwargs["deduplicate"] = True
-        
+
         frappe.enqueue(**enqueue_kwargs)
     except Exception as ex:
         logger.error("An error occurred queueing the job", exc_info=ex)
