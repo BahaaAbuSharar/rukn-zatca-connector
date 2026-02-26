@@ -23,7 +23,6 @@ def add_batch_to_background_queue(check_date=datetime.date.today()):
             queue="long",
             timeout=3480,  # 58 minutes, so that we can run it hourly
             job_name="Sync E-Invoices",
-            deduplicate=True,
             job_id=f"Sending invoices {check_date}",
         )
     except Exception as ex:
