@@ -12,6 +12,11 @@ to a section with the version name.
 > Use these versions **at your own risk** on v15.
 
 ## Unreleased Changes
+
+## 0.68.0
+* Fix background_jobs.py to conditionally enable deduplicate for Frappe v15+
+  * Add type hint for check_date parameter to pass semgrep validation
+
 ## 0.67.9
 * Fix Perform Compliance Checks after Withdrawn ZATCA Business Settings
 
